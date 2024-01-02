@@ -1,0 +1,140 @@
+.article-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.article-hero {
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+}
+
+  .article-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+.article-title {
+  font-size: 2.5em;
+  z-index: 1;
+  position: relative;
+}
+
+.article-meta {
+  font-size: 0.9em;
+  color: #ccc;
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.article-body {
+  background: #fff;
+  padding: 20px;
+}
+
+.article-text {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+  .article-text h1, .article-text h2, .article-text h3, .article-text h4, .article-text h5, .article-text h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .article-text p, .article-text li {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Tables */
+  .article-text table {
+    width: 100%; /* Ensuring tables take the full width of their container */
+    border-collapse: collapse; /* Merging borders for a cleaner look */
+    margin-bottom: 20px; /* Space below tables for separation */
+  }
+
+    .article-text table th, .article-text table td {
+      border: 1px solid #e0e0e0; /* Light border around table cells */
+      padding: 10px 15px; /* Padding inside cells */
+      font-size: 14px; /* Consistent font size */
+    }
+
+    .article-text table th {
+      background-color: #f5f5f5; /* Slightly different background for headers */
+      font-weight: 600; /* Making headers bold */
+    }
+
+  /* Links */
+  .article-text a:hover {
+    text-decoration: underline; /* Underlining links on hover for clarity */
+    color: #024a94; /* Slightly darker shade for hover */
+  }
+
+  /* Lists */
+  .article-text ul, .article-text ol {
+    padding-left: 20px; /* Indentation for lists */
+  }
+
+  .article-text li {
+    margin-bottom: 10px; /* Space between list items */
+  }
+
+.article-image {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.embedded-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+}
+
+.responsive-pdf {
+  position: relative;
+  padding-bottom: 100%; /* Adjust based on your needs, 100% makes it square */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+  .responsive-pdf iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+.explore-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  color: white; /* Default text color */
+  width: 200px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #006400; /* Dark green */
+}
+
+  .explore-btn:hover {
+    background-color: #004d00; /* Slightly darker shade for hover */
+  }

@@ -1,0 +1,28 @@
+<div class="parent-new">
+  <ng-container *ngFor="let value of values; let i = index">
+    <div (click)="onBoxClick(i)"
+         [ngClass]="{
+        'box-tumbleweed': i % 3 === 0,
+        'box-glaucous': i % 3 === 1,
+        'box-misty-moss': i % 3 === 2,
+        'active': activeBox === i
+      }"
+         class="cell box">
+      <div class="content">{{ value.title }}</div>
+      <div class="description">{{ value.shortDescription }}</div>
+    </div>
+
+    <!-- Display the new box below the row if the box in this row is selected -->
+    <ng-container *ngIf="i % 3 === 2 && (activeBox === i || activeBox === i-1 || activeBox === i-2)">
+      <div class="expanded-box">
+        <h2>{{ selectedTitle }}</h2>
+        {{ selectedExtendedDescription }}
+
+        <!-- Explore further button -->
+        <ng-container *ngIf="values[activeBox]?.exploreUrl">
+          <a [href]="values[activeBox]?.exploreUrl" class="explore-btn">Explore further</a>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,20 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container d-flex justify-content-between">
+      <div class="menu-container">
+        <a routerLink="/">
+          <img _ngcontent-ng-cli-universal-c55="" src="/assets/logo/vast.png" srcset="/assets/logo/vast@2x.png 2x,/assets/logo/vast@3x.png 3x" alt="VAST Platform" class="logo ng-star-inserted" style="">
+        </a>
+        <a href="https://platform.vast-project.eu/blog/" class="menu-item">Active Campaigns</a>
+        <a class="menu-item" routerLink="/present/article/about">About Vast</a>
+      </div>
+      <div class="search-container">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="text" class="search-input" placeholder="Search" [(ngModel)]="searchQuery" (keydown.enter)="onSearch()" />
+      </div>
+      <button class="login-button" (click)="goToGraph()">
+        <mat-icon class="person-icon">person</mat-icon>
+      </button>
+    </div>
+  </nav>
+</header>

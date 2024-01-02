@@ -1,0 +1,123 @@
+.parent-new {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px; /* Adding some gap between grid cells */
+}
+
+.cell {
+  border: 4px solid white;
+  padding: 10px;
+  height: 240px;
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+  .cell .content {
+    font-weight: bold;
+  }
+
+  .cell .description {
+    display: none; /* Hiding the description by default */
+    font-size: 16px; /* You can adjust the size as needed */
+  }
+
+  .cell:hover .description {
+    display: block; /* Showing the description on hover */
+  }
+
+  /* Background colors for hover effects based on your previous CSS */
+  .cell.box-tumbleweed.active, .cell.box-tumbleweed:hover {
+    background-color: #d8a994;
+  }
+
+  .cell.box-glaucous.active, .cell.box-glaucous:hover {
+    background-color: #5977b9;
+  }
+
+  .cell.box-misty-moss.active, .cell.box-misty-moss:hover {
+    background-color: #bfb478;
+  }
+
+  .cell.active {
+    border: 4px solid #000;
+  }
+
+.expanded-box {
+  grid-column: span 3; /* Span across 3 columns */
+  height: 480px; /* Double the height of regular boxes */
+  border: 2px solid black; /* Style as needed */
+  transition: opacity 0.3s; /* Fade transition */
+  background-color: white; /* Default background color */
+  padding: 20px;
+  box-sizing: border-box; /* Ensuring padding doesn't affect the size of the box */
+}
+
+  .expanded-box h2 {
+    font-size: 24px; /* Adjust as needed */
+    margin-bottom: 20px; /* Space between title and description, adjust as needed */
+    font-weight: bold;
+  }
+
+/* Set the background of the expanded box to match the active cell */
+.cell.box-tumbleweed.active ~ .expanded-box {
+  background-color: #f0c5b8; /* Lightened version of #d8a994 */
+}
+
+.cell.box-glaucous.active ~ .expanded-box {
+  background-color: #8ca1d4; /* Lightened version of #5977b9 */
+}
+
+.cell.box-misty-moss.active ~ .expanded-box {
+  background-color: #dcd3a1; /* Lightened version of #bfb478 */
+}
+
+/* ... your existing styles ... */
+
+/* Explore button common styles */
+.explore-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  color: white; /* Default text color */
+  width: 200px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Specific styles for each background color */
+
+/* For Tumbleweed background */
+.cell.box-tumbleweed.active ~ .expanded-box .explore-btn {
+  background-color: #5a3e28; /* Dark brown */
+}
+
+  .cell.box-tumbleweed.active ~ .expanded-box .explore-btn:hover {
+    background-color: #4a2e18; /* Slightly darker shade for hover */
+  }
+
+/* For Glaucous background */
+.cell.box-glaucous.active ~ .expanded-box .explore-btn {
+  background-color: #ffd700; /* Gold */
+  color: #333; /* Dark text color for better contrast */
+}
+
+  .cell.box-glaucous.active ~ .expanded-box .explore-btn:hover {
+    border-collapse: #fc0;
+    background-color: #ffdb66;
+  }
+
+/* For Misty Moss background */
+.cell.box-misty-moss.active ~ .expanded-box .explore-btn {
+  background-color: #006400; /* Dark green */
+}
+
+  .cell.box-misty-moss.active ~ .expanded-box .explore-btn:hover {
+    background-color: #004d00; /* Slightly darker shade for hover */
+  }
+
+.explore-btn:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,11 @@
+.iframe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to the full viewport height */
+}
+
+  .iframe-container iframe {
+    max-width: 100%;
+    max-height: 100%;
+  }
