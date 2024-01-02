@@ -1,0 +1,32 @@
+<VirtualHost *:443>
+  ServerName        platform.vast-project.eu
+  ServerAlias       *.vast-project.eu
+  SSLProxyEngine On
+  ProxyPreserveHost On
+  RequestHeader set X-Forwarded-Proto "https"
+  RequestHeader set X-Forwarded-Port "443"
+
+  # Specific ProxyPass rules for the new platform
+  ProxyPass "/index.html" "http://127.0.0.1:9981/index.html"
+  ProxyPass "/present"    "http://127.0.0.1:9981/present"
+  ProxyPass "/assets"    "http://127.0.0.1:9981/assets"
+  ProxyPass "/api"    "http://127.0.0.1:9981/api"
+  ProxyPassMatch "^/main\..*\.js$" "http://127.0.0.1:9981$0"
+  ProxyPassMatch "^/polyfills\..*\.js$" "http://127.0.0.1:9981$0"
+  ProxyPassMatch "^/runtime\..*\.js$" "http://127.0.0.1:9981$0"
+  ProxyPassMatch "^/styles\..*\.css$" "http://127.0.0.1:9981$0"
+  ProxyPassMatch "^/layers.*\.png$" "http://127.0.0.1:9981$0"
+  ProxyPassMatch "^/marker-icon.*\.png$" "http://127.0.0.1:9981$0"
+
+  # General ProxyPass rules
+  ProxyPass         "/" "http://127.0.0.1:6080/"
+  ProxyPassReverse  "/" "http://127.0.0.1:6080/"
+
+
+  CustomLog /var/log/httpd/vast.platform_access.log combined
+  ErrorLog  /var/log/httpd/vast.platform_error.log
+
+  Include /etc/letsencrypt/options-ssl-apache.conf
+  SSLCertificateFile    /etc/letsencrypt/live/www.ellogon.org/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/www.ellogon.org/privkey.pem
+</VirtualHost>

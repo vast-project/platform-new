@@ -1,0 +1,70 @@
+<div class="parent">
+  <div class="col1 col">
+    <div class="div1a box box-tumbleweed" (click)="goToExplorer()">
+      <div class="content">
+        <span class="light-font">Value</span><br />Graphs
+      </div>
+      <div class="description hidden">
+        Explore the VAST Values graphs from different viewpoints and dimensions.
+      </div>
+    </div>
+    <div class="div1b box box-tumbleweed"  (click)="goToOntology()">
+      <div class="content">
+        Cultural Heritage<br />Artefacts
+      </div>
+      <div class="description hidden">
+        Explore the Cultural Heritage Artefacts in VAST and link them to values.
+      </div>
+    </div>
+    <div class="div2 box box-tumbleweed" routerLink="/present/article/video">
+      <div class="content">
+        Video <span class="light-font">Tutorials</span>
+      </div>
+      <div class="description hidden">Short introduction to the VAST project</div>
+    </div>
+    <div class="div3 box box-tumbleweed" routerLink="/present/success">
+      <div class="content">
+        <span class="light-font">Success</span> Stories
+      </div>
+      <div class="description hidden">Case studies and success stories from the project</div>
+    </div>
+  </div>
+  <div class="col2 col">
+    <div class="div1 box box-glaucous" routerLink="/present/article/vast-map">
+      <div class="content">Geo-map<br/><span class="light-font">of Project Activities</span></div>
+      <div class="description hidden">Review the activities researching values on an interactive map.</div>
+    </div>
+    <div class="div2 box box-misty-moss" routerLink="/present/article/what-are-values">
+      <div class="content"><span class="light-font">What are </span><br/>Values?</div>
+      <div class="description hidden">A brief introduction to Values</div>
+    </div>
+    <div class="div3 box box-glaucous" routerLink="/present/services">
+      <div class="content">Services</div>
+      <div class="description hidden">Find value related online services developed by VAST.</div>
+    </div>
+    <div class="div4 box box-glaucous" (click)="sendEmail()">
+      <div class="content">Feedback</div>
+      <div class="description hidden">Get in touch!</div>
+    </div>
+  </div>
+  <div class="col3 col">
+    <div class="div1 box box-misty-moss" routerLink="/present/stats">
+      <div class="content"><span class="light-font">Infographics &</span><br />Statistics</div>
+      <div class="description hidden">Explore the VAST project data in different dimensions.</div>
+    </div>
+    <div class="div2">
+      <div class="div1 box box-misty-moss" routerLink="/present/resources">
+        <div class="content">Toolkits &<br /><span class="light-font">Resources</span></div>
+        <div class="description hidden">Find resources and tools about values and value research.</div>
+      </div>
+      <div class="div2 box box-misty-moss" (click)="goToNews()">
+        <div class="content">Research</div>
+        <div class="description hidden">Latest published results from the VAST project.</div>
+      </div>
+    </div>
+    <div class="div3 box box-tumbleweed" routerLink="/present/games">
+      <div class="content">Games</div>
+      <div class="description hidden">Discover values through educational games.</div>
+    </div>
+  </div>
+</div>

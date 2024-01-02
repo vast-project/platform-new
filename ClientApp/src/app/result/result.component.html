@@ -1,0 +1,36 @@
+<div class="result-page">
+  <div class="back-link" (click)="goBackToSearchResults()">
+    <mat-icon>arrow_back</mat-icon> Back to search results
+  </div>
+  <div class="card">
+    <div class="card-info">
+      <h2 class="card-title">{{ result.title }}</h2>
+      <p class="card-description">
+        {{ result.description }}
+      </p>
+    </div>
+    <div class="card-tag" (click)="searchByTag(result.tag)">
+      <div class="tag-text">{{ result.tag }}</div>
+    </div>
+  </div>
+  <div class="graph">
+    <directional-graph></directional-graph>
+  </div>
+
+  <div class="linked-items">
+    <div class="linked-items-header">Linked keywords ({{ keywords.length }}):</div>
+    <div class="linked-items-list">
+      <div *ngFor="let keyword of keywords" (click)="search(keyword)">{{ keyword }}</div>
+    </div>
+  </div>
+  <div class="linked-items">
+    <div class="linked-items-header">Linked concepts ({{ concepts.length }}):</div>
+    <div class="linked-items-list">
+      <div *ngFor="let concept of concepts" (click)="search(concept)">{{ concept }}</div>
+    </div>
+  </div>
+  <div class="annotation-list">
+    <div class="linked-items-header">Annotations:</div>
+    <div *ngFor="let annotation of annotations" class="annotation">{{ annotation }}</div>
+  </div>
+</div>

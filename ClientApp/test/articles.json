@@ -1,0 +1,34 @@
+{
+  "antigone-game": {
+    "title": "The Trial of Antigone",
+    //"heroImage": "path/to/your/herogoog/image.jpg",  // You can replace this with the actual URL of the hero image if you have one
+    "author": "VAST Project",
+    "date": "3rd of August 2023",
+    "sections": [
+      {
+        "type": "text",
+        "content": "\"The Trial of Antigone\" is an innovative and interactive educational game designed to immerse players into the profound moral dilemmas embedded within the story of Antigone, one of the most renowned plays from ancient Greek tragedy. By stepping into this rich narrative, players are challenged to navigate complex ethical questions and personal principles that resonate with modern audiences as much as they did in ancient times. The gameplay allows for a range of decisions that follow the story of Antigone, the daughter of Oedipus, who defies King Creon's edict not to bury her brother Polynices. The player's choices directly impact the unfolding of events, providing an engaging and personalized experience. Integrating educational insights with captivating storytelling, the game offers opportunities to reflect on themes such as duty, loyalty, justice, and civil disobedience. Various characters and their perspectives are explored, creating a multifaceted understanding of the different values and principles at play. Visual aids, dialogue options, and interactive elements are skillfully combined to foster critical thinking and deepen the player's appreciation of the philosophical inquiries posed by this timeless tale. Suitable for students, educators, and enthusiasts of classic literature, \"The Trial of Antigone\" serves as both a thought-provoking entertainment medium and a valuable teaching tool, bridging the gap between classical wisdom and contemporary ethical discourse."
+      },
+      {
+        "type": "iframe",
+        "url": "https://aylon.vast-project.eu/antigone/"
+      }
+    ]
+  },
+  "antigone-game-2": {
+    "title": "The Trial of Antigone",
+    //"heroImage": "path/to/your/herogoog/image.jpg",  // You can replace this with the actual URL of the hero image if you have one
+    "author": "VAST Project",
+    "date": "3rd of August 2023",
+    "sections": [
+      {
+        "type": "text",
+        "content": "\"The Trial of Antigone\" is an innovative and interactive educational game designed to immerse players into the profound moral dilemmas embedded within the story of Antigone, one of the most renowned plays from ancient Greek tragedy. By stepping into this rich narrative, players are challenged to navigate complex ethical questions and personal principles that resonate with modern audiences as much as they did in ancient times. The gameplay allows for a range of decisions that follow the story of Antigone, the daughter of Oedipus, who defies King Creon's edict not to bury her brother Polynices. The player's choices directly impact the unfolding of events, providing an engaging and personalized experience. Integrating educational insights with captivating storytelling, the game offers opportunities to reflect on themes such as duty, loyalty, justice, and civil disobedience. Various characters and their perspectives are explored, creating a multifaceted understanding of the different values and principles at play. Visual aids, dialogue options, and interactive elements are skillfully combined to foster critical thinking and deepen the player's appreciation of the philosophical inquiries posed by this timeless tale. Suitable for students, educators, and enthusiasts of classic literature, \"The Trial of Antigone\" serves as both a thought-provoking entertainment medium and a valuable teaching tool, bridging the gap between classical wisdom and contemporary ethical discourse."
+      },
+      {
+        "type": "iframe",
+        "url": "https://aylon.vast-project.eu/antigone/"
+      }
+    ]
+  }
+}

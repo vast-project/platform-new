@@ -1,0 +1,386 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  box-sizing: border-box;
+}
+
+.main-content {
+  padding-bottom: 70px; /* height of the footer */
+}
+
+/* EU footer */
+.eu-disclaimer {
+  display: flex;
+  align-items: center;
+  /*position: fixed;
+  bottom: 0;*/
+  height: 60px; 
+  background-color: #ffffff;
+  padding: 30px;
+  font-size: 10px;
+  text-align: left;
+}
+
+  .eu-disclaimer p {
+    margin: 0;
+  }
+
+  .eu-disclaimer .eu-flag {
+    max-width: 45px;
+    max-height: auto; /* adjust to the desired height */
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+a {
+  color: #0366d6;
+}
+
+.light-font {
+  font-weight: 300;
+}
+
+/* PRIMARY GRID */
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 680px;
+  grid-column-gap: 0px;
+  background: url('/assets/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+  border: 4px solid white;
+}
+
+.box-misty-moss {
+  background-color: rgba(191,180,120,0.8);
+}
+
+  .box-misty-moss:hover {
+    background-color: #bfb478;
+  }
+
+.box-glaucous {
+  background-color: rgba(89,119,185,0.8);
+}
+
+  .box-glaucous:hover {
+    background-color: #5977b9;
+  }
+
+.box-tumbleweed {
+  background-color: rgba(216,169,148,0.8);
+}
+
+  .box-tumbleweed:hover {
+    background-color: #d8a994;
+  }
+
+.col1 {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(28, 1fr); /* Double the number of fractions */
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+  .col1 > .div1a {
+    grid-area: 1 / 1 / 10 / 2; /* Span 9 fractions */
+  }
+
+  .col1 > .div1b {
+    grid-area: 10 / 1 / 19 / 2; /* Span 9 fractions */
+  }
+
+  .col1 > .div2 {
+    grid-area: 19 / 1 / 23 / 2; /* Adjust the starting point */
+  }
+
+  .col1 > .div3 {
+    grid-area: 23 / 1 / 29 / 2; /* Adjust the starting point */
+  }
+
+
+.col2 {
+  grid-area: 1 / 2 / 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+  .col2 > .div1 {
+    grid-area: 1 / 1 / 6 / 3;
+  }
+
+  .col2 > .div2 {
+    grid-area: 6 / 1 / 10 / 3;
+  }
+
+  .col2 > .div3 {
+    grid-area: 10 / 1 / 12 / 2;
+  }
+
+  .col2 > .div4 {
+    grid-area: 10 / 2 / 12 / 3;
+  }
+
+.col3 {
+  grid-area: 1 / 3 / 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(11, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+  .col3 > .div1 {
+    grid-area: 1 / 1 / 6 / 3;
+  }
+
+  .col3 > .div2 {
+    grid-area: 6 / 1 / 10 / 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background: initial;
+    border: 0;
+  }
+
+    .col3 > .div2 > .div1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .col3 > .div2 > .div2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+  .col3 > .div3 {
+    grid-area: 10 / 1 / 12 / 2;
+  }
+
+  .col3 .div4 {
+    grid-area: 10 / 2 / 12 / 3;
+  }
+
+
+
+/* The tile effects */
+a {
+  color: #0366d6;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.box {
+  cursor: pointer;
+  border: 4px solid white;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+  .box:hover .content {
+    transform: translate(-50%, -50%) scale(0.8);
+    font-weight: bold;
+    transition: transform 300ms, font-weight 300ms, font-size 300ms;
+  }
+
+  .box:hover .description {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+
+.content,
+.description {
+  backface-visibility: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s, opacity 300ms ease-in-out;
+  padding: 15px;
+}
+
+.content {
+  flex-direction: column;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  z-index: 2;
+  transition: transform 300ms, font-weight 300ms, font-size 300ms, opacity 300ms ease-in-out;
+}
+
+.box:hover .content {
+  opacity: 0;
+  transform: translate(0, 0) scale(0.8);
+  font-weight: bold;
+  transition: transform 300ms, font-weight 300ms, font-size 300ms, opacity 300ms ease-in-out;
+}
+
+.description {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+  opacity: 0;
+  text-align: left;
+  padding: 10px;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 300ms, opacity 300ms ease-in-out;
+}
+
+.box:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effects for background color and image */
+.box:hover {
+  transition: background-color 300ms ease-in-out, background-image 300ms ease-in-out;
+}
+
+/* CHART */
+.col1 .div1 .description {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.graph-wrapper {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+directional-graph {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.directional-graph-container {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  background-color: rgba(255,255,255,0.5);
+}
+
+svg {
+  background-color: transparent;
+}
+
+path.link {
+  stroke: #666 !important;
+  stroke-width: 1.5px !important;
+  fill: none;
+}
+
+
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+
+text {
+  fill: #000;
+  font: 10px sans-serif;
+  pointer-
+      
+      : none;
+}
+
+  .line-series path {
+  stroke-width: 3.5px;
+}
+
+
+.article-body .team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* three equal columns */
+  gap: 20px; /* space between grid items */
+  padding: 20px; /* padding around the grid */
+}
+
+.article-body .team-grid-item {
+  background-color: #f5f5f5; /* light gray background for grid items for visibility */
+  border: 1px solid #e0e0e0; /* border around grid items */
+  border-radius: 5px; /* rounded corners */
+  overflow: hidden; /* hides overflow, useful if any child elements go outside the boundaries */
+  position: relative; /* allows absolute positioning of child elements */
+}
+
+.article-body .grid-item-wrapper {
+  position: relative; /* relative positioning for overlay link */
+}
+
+.article-body .grid-item-image {
+  width: 100%; /* ensures the image takes full width */
+  height: 240px; /* fixed height for the images */
+  overflow: hidden; /* hides overflow, useful for the blob images */
+}
+
+.article-body .grid-item-blob {
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* ensures background images cover the whole div */
+  background-position: center; /* centers the background image */
+  border-radius: 50%; /* makes the blob circular */
+}
+
+.article-body .content-wrap {
+  padding: 10px; /* some space around content */
+  text-align: center; /* centers text */
+}
+
+.article-body .team-link-overlay {
+  position: absolute; /* full size link over the item */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10; /* ensures it's above other content */
+}
+
+.responsive-youtube {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+  .responsive-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+.card-info {
+    cursor: pointer;
+}

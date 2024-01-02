@@ -1,0 +1,12 @@
+<p>VAST’s semantic annotation platform allows the collaborative, multimodal, analysis and annotation of artefacts (primary with values, but not limited to values), for professionals like scholars analysing narratives, or museum curators who want to extend the available metadata on their collections.<p>
+<a class="tool-highlight">https://annotation.vast-project.eu/</a>
+
+
+<p>The VAST Ontology Design Tool can help policy makers and scholars navigate corpora of annotated texts and link them to values through simple statements.<p>
+<a class="tool-highlight">https://ontology.vast-project.eu/</a>
+
+<p>The Survey Tool helps researchers prepare digital surveys that can then be analysed or ingested into the VAST knowledge base.<p>
+<a class="tool-highlight">https://platform.vast-project.eu/category/surveys/survey-active/</a>
+
+<p><p>
+<a class="tool-highlight"></a>
