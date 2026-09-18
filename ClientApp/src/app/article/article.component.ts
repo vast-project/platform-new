@@ -57,12 +57,12 @@ export class ArticleComponent implements OnInit, AfterViewInit {
   private hideElementsInIframesAfterDataFetch() {
     // Use a timeout to allow the view to update
     setTimeout(() => {
-        this.hideElementsInIframes();
+      this.hideElementsInIframes();
 
-        // Manually run change detection
-        this.cdRef.detectChanges();
+      // Manually run change detection
+      this.cdRef.detectChanges();
     });
-}
+  }
 
   hideElementsInIframes() {
     // Get all iframes of type 'iframe-internal' using Angular's ElementRef
@@ -70,21 +70,32 @@ export class ArticleComponent implements OnInit, AfterViewInit {
     console.log(`Found ${iframes.length} iframes`);
 
     iframes.forEach((iframe: HTMLIFrameElement) => {
-      // Check if iframe is loaded
+      // Attach onload event to each iframe
       iframe.onload = () => {
-        const idsToHide = ['g-top', 'g-navigation', 'g-slideshow', 'g-container-footer'];
-
-        idsToHide.forEach(id => {
-          console.log(`Checking iframe with src ${iframe.src} for element with id ${id}`);
-          if (iframe.contentDocument) {
-            const elementInsideIframe = iframe.contentDocument.querySelector(`section#${id}`) as HTMLElement;
-            if (elementInsideIframe) {
-              console.log(`Hiding element with id ${id} in iframe with src ${iframe.src}`);
-              elementInsideIframe.style.display = 'none';
-            }
-          }
-        });
+        this.hideElementsInsideIframe(iframe);
       };
+
+      // Trigger hiding logic immediately if the iframe is already loaded
+      if (iframe?.contentWindow?.document.readyState === 'complete') {
+        this.hideElementsInsideIframe(iframe);
+      }
+    });
+  }
+
+  private hideElementsInsideIframe(iframe: HTMLIFrameElement) {
+    const idsToHide = ['g-top', 'g-navigation', 'g-slideshow', 'g-container-footer'];
+
+    idsToHide.forEach(id => {
+      console.log(`Checking iframe with src ${iframe.src} for element with id ${id}`);
+      if (iframe.contentDocument) {
+        console.log(`Locating ${id}`);
+        const elementInsideIframe = iframe.contentDocument.getElementById(id);
+        console.log(elementInsideIframe);
+        if (elementInsideIframe) {
+          console.log(`Hiding element with id ${id} in iframe with src ${iframe.src}`);
+          elementInsideIframe.style.display = 'none';
+        }
+      }
     });
   }
 }

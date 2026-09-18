@@ -29,4 +29,8 @@ export class NavMenuComponent {
   goToGraph() {
     window.location.href = "https://graph.vast-project.eu";
   }
+
+  goToAbout() {
+    window.location.href = "https://www.vast-project.eu";
+  }
 }

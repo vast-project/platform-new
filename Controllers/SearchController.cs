@@ -22,10 +22,13 @@ namespace Platform.Controllers
                     Title = article.Title,
                     Description = article.Description,
                     Tag = "Article",
-                    Url = "/present/article/" + article.Slug
+                    Url = ( (article?.Slug?.ToLower()?.StartsWith("http://") == true || article?.Slug?.ToLower()?.StartsWith("https://") == true) ? article?.Slug : "/present/article/" + article?.Slug),
+                    SmallImage = article.SmallImage,
+                    Category = article.Category,
+                    TargetGroup = article.TargetGroup
                 };
 
-                if (article.Tags != null && article.Tags.Count > 0)
+                if (article.Tags != null && article.Tags?.Count > 0)
                 {
                     result.Tag = article.Tags[0];
                     //Make sure the first letter is uppercase

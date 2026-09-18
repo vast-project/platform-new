@@ -138,3 +138,10 @@
   .explore-btn:hover {
     background-color: #004d00; /* Slightly darker shade for hover */
   }
+
+
+.responsive-video {
+  width: 100%;
+  height: auto;
+  max-height: 600px; 
+}

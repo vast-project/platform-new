@@ -26,8 +26,16 @@ export class HomeComponent {
     window.open("https://www.vast-project.eu/presentations-publications/", "_blank");
   }
 
+  goToEduMus() {
+    window.open("https://www.vast-project.eu/educators/", "_blank");
+  }
+
+  goToScholars() {
+    window.open("https://www.vast-project.eu/scholar/", "_blank");
+  }
+
   sendEmail(): void {
-    const mailtoLink = `mailto:vast@vast-project.eu?subject=${encodeURIComponent("VAST Feedback")}`;
+    const mailtoLink = `mailto:vast@iit.demokritos.gr?subject=${encodeURIComponent("VAST Feedback")}`;
     window.open(mailtoLink, '_self');
   }
 }

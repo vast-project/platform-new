@@ -18,7 +18,8 @@ import { VideoComponent } from './video/video.component';
 import { SafePipe } from './safe.pipe';
 import { MapComponent } from './map/map.component';
 import { SchwartzWheelComponent } from './schwartz-wheel/schwartz-wheel.component';
-import { EuValuesComponent } from './eu-values/eu-values.component'; 
+import { EuValuesComponent } from './eu-values/eu-values.component';
+import { ListingComponent } from './listing/listing.component'; 
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EuValuesComponent } from './eu-values/eu-values.component';
     SafePipe,
     MapComponent,
     SchwartzWheelComponent,
-    EuValuesComponent 
+    EuValuesComponent,
+    ListingComponent 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -50,6 +52,7 @@ import { EuValuesComponent } from './eu-values/eu-values.component';
       { path: 'present/search/:query', component: SearchComponent },
       { path: 'present/result/:id', component: ResultComponent },
       { path: 'present/games', component: SearchComponent, pathMatch: 'full', data: { searchType: 'games' } },
+      { path: 'present/videos', component: SearchComponent, pathMatch: 'full', data: { searchType: 'video', big: 1 } },
       { path: 'present/services', component: SearchComponent, pathMatch: 'full', data: { searchType: 'services' } },
       { path: 'present/stats', component: SearchComponent, pathMatch: 'full', data: { searchType: 'stats' } },
       { path: 'present/success', component: SearchComponent, pathMatch: 'full', data: { searchType: 'success' } },

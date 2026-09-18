@@ -36,6 +36,8 @@
         public string Date { get; set; }
         public List<Section> Sections { get; set; }
         public List<string> Tags { get; set; }
+        public string Category { get; set; }
+        public string TargetGroup { get; set; }
     }
 
     public class Section
@@ -53,6 +55,10 @@
         public string Description { get; set; }
         public string Tag { get; set; }
         public string Url { get; set; }
+        public string TargetGroup { get; set; }
+        public string Category { get; set; }
+
+        public string SmallImage { get; set; }
     }
 
     public class SimpleRelation

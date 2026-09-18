@@ -20,7 +20,7 @@ body {
   align-items: center;
   /*position: fixed;
   bottom: 0;*/
-  height: 60px; 
+  height: 60px;
   background-color: #ffffff;
   padding: 30px;
   font-size: 10px;
@@ -47,14 +47,14 @@ a {
 }
 
 /* PRIMARY GRID */
-.parent {
+.audience-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 680px;
-  grid-column-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; 
+  height: 80px;
+}
+
+.parent {
   background: url('/assets/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -181,6 +181,43 @@ a {
   }
 
 
+.small-screen {
+  display: none;
+}
+
+.large-screen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 680px;
+  grid-column-gap: 0px;
+}
+
+@media screen and (max-width: 1200px) {
+  .large-screen {
+    display: none !important;
+  }
+
+  .small-screen {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+    .small-screen .box {
+      margin-bottom: 10px;
+      min-height: 150px;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+  .small-screen {
+    grid-template-columns: repeat(2, 1fr); /* Two columns in this screen size range */
+  }
+}
 
 /* The tile effects */
 a {
@@ -308,9 +345,7 @@ circle {
 text {
   fill: #000;
   font: 10px sans-serif;
-  pointer-
-      
-      : none;
+  pointer-: none;
 }
 
   .line-series path {
@@ -382,5 +417,5 @@ text {
   }
 
 .card-info {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -6,8 +6,9 @@
   <div class="article-body">
     <div *ngFor="let section of article?.sections">
       <div *ngIf="section.type === 'text'" class="article-text" [innerHTML]="sanitizeHtml(section.content)"></div>
-      <img *ngIf="section.type === 'image'" [src]="section.content" alt="Article Image" class="article-image">
+      <img *ngIf="section.type === 'image'" [src]="section.content ? section.content : section.url" alt="Article Image" class="article-image">
       <a *ngIf="section.type === 'link'" [href]="section.url" target="_blank" class="explore-btn">Explore</a>
+      <a *ngIf="section.type === 'gh-link'" [href]="section.url" target="_blank" class="explore-btn">Source Code</a>
       <iframe *ngIf="section.type === 'iframe'" [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe"></iframe>
       <iframe *ngIf="section.type === 'iframe-internal'" [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe internal-iframe"></iframe>
       <eu-values *ngIf="section.type === 'euvalues'"></eu-values>
@@ -21,6 +22,10 @@
       <div class="responsive-pdf" *ngIf="section.type === 'pdf'">
         <iframe [src]="section.url | safe" frameborder="0" allowfullscreen></iframe>
       </div>
+      <video *ngIf="section.type === 'htmlvid'" controls class="responsive-video">
+        <source [src]="section.url" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </div>

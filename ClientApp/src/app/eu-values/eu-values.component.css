@@ -1,6 +1,6 @@
 .parent-new {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
   grid-gap: 10px; /* Adding some gap between grid cells */
 }
 
@@ -70,8 +70,6 @@
   background-color: #dcd3a1; /* Lightened version of #bfb478 */
 }
 
-/* ... your existing styles ... */
-
 /* Explore button common styles */
 .explore-btn {
   display: block;
@@ -120,4 +118,34 @@
 
 .explore-btn:hover {
   background-color: #45a049;
+}
+
+/* Styles for screens smaller than 1400px */
+@media (max-width: 1400px) {
+  .parent-new {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+
+  .cell {
+    height: 300px;
+  }
+
+  .expanded-box {
+    grid-column: span 2; /* Span across 2 columns */
+  }
+}
+
+/* Styles for screens smaller than 780px */
+@media (max-width: 995px) {
+  .parent-new {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+
+  .cell {
+    height: 450px;
+  }
+
+  .expanded-box {
+    grid-column: span 1; /* Span across 1 column */
+  }
 }
