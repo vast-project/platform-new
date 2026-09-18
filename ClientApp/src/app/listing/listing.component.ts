@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+    selector: 'app-listing',
+    templateUrl: './listing.component.html',
+    styleUrls: ['./listing.component.css'],
+    standalone: false
 })
 export class ListingComponent {
   @Input() itemsPerRow: number = 4;

@@ -4,28 +4,54 @@
     <div class="article-meta">By {{article?.author}} | {{article?.date}}</div>
   </div>
   <div class="article-body">
-    <div *ngFor="let section of article?.sections">
-      <div *ngIf="section.type === 'text'" class="article-text" [innerHTML]="sanitizeHtml(section.content)"></div>
-      <img *ngIf="section.type === 'image'" [src]="section.content ? section.content : section.url" alt="Article Image" class="article-image">
-      <a *ngIf="section.type === 'link'" [href]="section.url" target="_blank" class="explore-btn">Explore</a>
-      <a *ngIf="section.type === 'gh-link'" [href]="section.url" target="_blank" class="explore-btn">Source Code</a>
-      <iframe *ngIf="section.type === 'iframe'" [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe"></iframe>
-      <iframe *ngIf="section.type === 'iframe-internal'" [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe internal-iframe"></iframe>
-      <eu-values *ngIf="section.type === 'euvalues'"></eu-values>
-      <app-map *ngIf="section.type === 'map'" [mapdata]="section.map"></app-map>
-      <div class="responsive-youtube" *ngIf="section.type === 'yt-playlist'">
-        <iframe [src]="section.url | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    @for (section of article?.sections; track section) {
+      <div>
+        @if (section.type === 'text') {
+          <div class="article-text" [innerHTML]="sanitizeHtml(section.content)"></div>
+        }
+        @if (section.type === 'image') {
+          <img [src]="section.content ? section.content : section.url" alt="Article Image" class="article-image">
+        }
+        @if (section.type === 'link') {
+          <a [href]="section.url" target="_blank" class="explore-btn">Explore</a>
+        }
+        @if (section.type === 'gh-link') {
+          <a [href]="section.url" target="_blank" class="explore-btn">Source Code</a>
+        }
+        @if (section.type === 'iframe') {
+          <iframe [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe"></iframe>
+        }
+        @if (section.type === 'iframe-internal') {
+          <iframe [src]="section.url | safe" frameborder="0" allowfullscreen class="embedded-iframe internal-iframe"></iframe>
+        }
+        @if (section.type === 'euvalues') {
+          <eu-values></eu-values>
+        }
+        @if (section.type === 'map') {
+          <app-map [mapdata]="section.map"></app-map>
+        }
+        @if (section.type === 'yt-playlist') {
+          <div class="responsive-youtube">
+            <iframe [src]="section.url | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        }
+        @if (section.type === 'yt') {
+          <div class="responsive-youtube">
+            <iframe [src]="section.url | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        }
+        @if (section.type === 'pdf') {
+          <div class="responsive-pdf">
+            <iframe [src]="section.url | safe" frameborder="0" allowfullscreen></iframe>
+          </div>
+        }
+        @if (section.type === 'htmlvid') {
+          <video controls class="responsive-video">
+            <source [src]="section.url" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        }
       </div>
-      <div class="responsive-youtube" *ngIf="section.type === 'yt'">
-        <iframe [src]="section.url | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="responsive-pdf" *ngIf="section.type === 'pdf'">
-        <iframe [src]="section.url | safe" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <video *ngIf="section.type === 'htmlvid'" controls class="responsive-video">
-        <source [src]="section.url" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    }
   </div>
 </div>

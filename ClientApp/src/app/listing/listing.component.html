@@ -1,12 +1,14 @@
 <div class="gallery">
-  <div *ngFor="let item of items"
-       [ngClass]="{'gallery-item-four': itemsPerRow === 4, 'gallery-item-two': itemsPerRow === 2}"
-       class="gallery-item">
-    <a (click)="navigateToUrl(item.url)" class="neutral-link">
-      <img [src]="item.imageUrl" alt="Item Image" class="item-image">
-      <div class="item-title">{{ item.title }}</div>
-      <div class="item-category">{{ item.category }}</div>
-      <div class="item-target-group">{{ item.targetGroup }}</div>
-    </a>
-  </div>
+  @for (item of items; track item) {
+    <div
+      [ngClass]="{'gallery-item-four': itemsPerRow === 4, 'gallery-item-two': itemsPerRow === 2}"
+      class="gallery-item">
+      <a (click)="navigateToUrl(item.url)" class="neutral-link">
+        <img [src]="item.imageUrl" alt="Item Image" class="item-image">
+        <div class="item-title">{{ item.title }}</div>
+        <div class="item-category">{{ item.category }}</div>
+        <div class="item-target-group">{{ item.targetGroup }}</div>
+      </a>
+    </div>
+  }
 </div>

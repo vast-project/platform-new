@@ -2,9 +2,10 @@ import { Component, OnInit, ElementRef, NgZone, OnDestroy } from '@angular/core'
 import * as d3 from 'd3';
 
 @Component({
-  selector: 'app-schwartz-wheel',
-  template: '',
-  styleUrls: ['./schwartz-wheel.component.css']
+    selector: 'app-schwartz-wheel',
+    template: '',
+    styleUrls: ['./schwartz-wheel.component.css'],
+    standalone: false
 })
 export class SchwartzWheelComponent implements OnInit, OnDestroy {
 

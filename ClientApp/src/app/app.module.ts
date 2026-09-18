@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -22,47 +22,45 @@ import { EuValuesComponent } from './eu-values/eu-values.component';
 import { ListingComponent } from './listing/listing.component'; 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    DirectionalGraphComponent,
-    SearchComponent,
-    ResultComponent,
-    ContentComponent,
-    ArticleComponent,
-    ImageGalleryComponent,
-    VideoComponent,
-    SafePipe,
-    MapComponent,
-    SchwartzWheelComponent,
-    EuValuesComponent,
-    ListingComponent 
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    MatIconModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'present/about', component: SearchComponent, pathMatch: 'full', data: { articleId: 'about' } },
-      { path: 'present/search', component: SearchComponent, pathMatch: 'full' },
-      { path: 'present/search/:query', component: SearchComponent },
-      { path: 'present/result/:id', component: ResultComponent },
-      { path: 'present/games', component: SearchComponent, pathMatch: 'full', data: { searchType: 'games' } },
-      { path: 'present/videos', component: SearchComponent, pathMatch: 'full', data: { searchType: 'video', big: 1 } },
-      { path: 'present/services', component: SearchComponent, pathMatch: 'full', data: { searchType: 'services' } },
-      { path: 'present/stats', component: SearchComponent, pathMatch: 'full', data: { searchType: 'stats' } },
-      { path: 'present/success', component: SearchComponent, pathMatch: 'full', data: { searchType: 'success' } },
-      { path: 'present/resources', component: SearchComponent, pathMatch: 'full', data: { searchType: 'resources' } },
-      { path: 'present/campaigns', component: SearchComponent, pathMatch: 'full', data: { searchType: 'campaigns' } },
-      { path: 'present/article/:id', component: ArticleComponent },
-      { path: 'present/gallery/:id', component: ImageGalleryComponent },
-    ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        DirectionalGraphComponent,
+        SearchComponent,
+        ResultComponent,
+        ContentComponent,
+        ArticleComponent,
+        ImageGalleryComponent,
+        VideoComponent,
+        SafePipe,
+        MapComponent,
+        SchwartzWheelComponent,
+        EuValuesComponent,
+        ListingComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        MatIconModule,
+        RouterModule.forRoot([
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'present/about', component: SearchComponent, pathMatch: 'full', data: { articleId: 'about' } },
+            { path: 'present/search', component: SearchComponent, pathMatch: 'full' },
+            { path: 'present/search/:query', component: SearchComponent },
+            { path: 'present/result/:id', component: ResultComponent },
+            { path: 'present/games', component: SearchComponent, pathMatch: 'full', data: { searchType: 'games' } },
+            { path: 'present/videos', component: SearchComponent, pathMatch: 'full', data: { searchType: 'video', big: 1 } },
+            { path: 'present/services', component: SearchComponent, pathMatch: 'full', data: { searchType: 'services' } },
+            { path: 'present/stats', component: SearchComponent, pathMatch: 'full', data: { searchType: 'stats' } },
+            { path: 'present/success', component: SearchComponent, pathMatch: 'full', data: { searchType: 'success' } },
+            { path: 'present/resources', component: SearchComponent, pathMatch: 'full', data: { searchType: 'resources' } },
+            { path: 'present/campaigns', component: SearchComponent, pathMatch: 'full', data: { searchType: 'campaigns' } },
+            { path: 'present/article/:id', component: ArticleComponent },
+            { path: 'present/gallery/:id', component: ImageGalleryComponent },
+        ])], providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        // BrowserModule.withServerTransition() was removed in Angular 18; the app id
+        // it used to set is now provided through the APP_ID token.
+        { provide: APP_ID, useValue: 'ng-cli-universal' }
+    ] })
 export class AppModule { }

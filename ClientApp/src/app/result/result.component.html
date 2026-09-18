@@ -20,17 +20,23 @@
   <div class="linked-items">
     <div class="linked-items-header">Linked keywords ({{ keywords.length }}):</div>
     <div class="linked-items-list">
-      <div *ngFor="let keyword of keywords" (click)="search(keyword)">{{ keyword }}</div>
+      @for (keyword of keywords; track keyword) {
+        <div (click)="search(keyword)">{{ keyword }}</div>
+      }
     </div>
   </div>
   <div class="linked-items">
     <div class="linked-items-header">Linked concepts ({{ concepts.length }}):</div>
     <div class="linked-items-list">
-      <div *ngFor="let concept of concepts" (click)="search(concept)">{{ concept }}</div>
+      @for (concept of concepts; track concept) {
+        <div (click)="search(concept)">{{ concept }}</div>
+      }
     </div>
   </div>
   <div class="annotation-list">
     <div class="linked-items-header">Annotations:</div>
-    <div *ngFor="let annotation of annotations" class="annotation">{{ annotation }}</div>
+    @for (annotation of annotations; track annotation) {
+      <div class="annotation">{{ annotation }}</div>
+    }
   </div>
 </div>

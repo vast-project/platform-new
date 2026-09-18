@@ -6,9 +6,10 @@ import { DataService } from '../data.service';
 
 
 @Component({
-  selector: 'directional-graph',
-  templateUrl: './directional-graph.component.html',
-  styleUrls: ['./directional-graph.component.css']
+    selector: 'directional-graph',
+    templateUrl: './directional-graph.component.html',
+    styleUrls: ['./directional-graph.component.css'],
+    standalone: false
 })
 export class DirectionalGraphComponent implements OnInit {
 

@@ -8,9 +8,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+    selector: 'app-article',
+    templateUrl: './article.component.html',
+    styleUrls: ['./article.component.css'],
+    standalone: false
 })
 export class ArticleComponent implements OnInit, AfterViewInit {
   article: any;

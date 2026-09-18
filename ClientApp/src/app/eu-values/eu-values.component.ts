@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'eu-values',
-  templateUrl: './eu-values.component.html',
-  styleUrls: ['./eu-values.component.css']
+    selector: 'eu-values',
+    templateUrl: './eu-values.component.html',
+    styleUrls: ['./eu-values.component.css'],
+    standalone: false
 })
 export class EuValuesComponent implements OnInit {
 

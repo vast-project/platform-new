@@ -1,3 +1,5 @@
 <div class="gallery-container">
-  <img *ngFor="let image of images" [src]="image" alt="Gallery Image" class="gallery-image" />
+  @for (image of images; track image) {
+    <img [src]="image" alt="Gallery Image" class="gallery-image" />
+  }
 </div>
